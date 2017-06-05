@@ -53,8 +53,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
                 LinearLayout textContainer = (LinearLayout) listItemView.findViewById(R.id.text_container);
 
                 textContainer.setBackgroundColor(color);
-
-                return textContainer;
             }
 
         // Get the {@link Word} object located at this position in the list

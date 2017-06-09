@@ -1,8 +1,11 @@
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -33,12 +36,22 @@ public class NumbersActivity extends AppCompatActivity {
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml file.
-        ListView listView = (ListView) findViewById(R.id.list);
+        final ListView listView = (ListView) findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
         // {@link ListView} will display list items for each {@link Word} in the list.
         listView.setAdapter(adapter);
 
+        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_one);
+
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
+                mediaPlayer.start();
+
+            }
+        });
     }
 }
 

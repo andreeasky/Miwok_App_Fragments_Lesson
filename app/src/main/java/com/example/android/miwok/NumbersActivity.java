@@ -64,30 +64,26 @@ public class NumbersActivity extends AppCompatActivity {
                     mediaPlayer.start();
                 }
                 if (i == 3) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_three);
-                    mediaPlayer.start();
-                }
-                if (i == 4) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_four);
                     mediaPlayer.start();
                 }
-                if (i == 5) {
+                if (i == 4) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_five);
                     mediaPlayer.start();
                 }
-                if (i == 6) {
+                if (i == 5) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_six);
                     mediaPlayer.start();
                 }
-                if (i == 7) {
+                if (i == 6) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_seven);
                     mediaPlayer.start();
                 }
-                if (i == 8) {
+                if (i == 7) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_eight);
                     mediaPlayer.start();
                 }
-                if (i == 9) {
+                if (i == 8) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_nine);
                     mediaPlayer.start();
                 }

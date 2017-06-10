@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static android.R.attr.y;
-
 public class NumbersActivity extends AppCompatActivity {
 
     @Override
@@ -52,39 +50,43 @@ public class NumbersActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
 
                 if (i == 0) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_one);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
                     mediaPlayer.start();
                 }
                 if (i == 1) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_two);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_two);
                     mediaPlayer.start();
                 }
                 if (i == 2) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_three);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_three);
                     mediaPlayer.start();
                 }
                 if (i == 3) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_four);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_four);
                     mediaPlayer.start();
                 }
                 if (i == 4) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_five);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_five);
                     mediaPlayer.start();
                 }
                 if (i == 5) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_six);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_six);
                     mediaPlayer.start();
                 }
                 if (i == 6) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_seven);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_seven);
                     mediaPlayer.start();
                 }
                 if (i == 7) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_eight);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_eight);
                     mediaPlayer.start();
                 }
                 if (i == 8) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.number_nine);
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_nine);
+                    mediaPlayer.start();
+                }
+                if (i == 9) {
+                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_ten);
                     mediaPlayer.start();
                 }
             }

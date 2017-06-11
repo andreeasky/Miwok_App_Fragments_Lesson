@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ColorsActivity extends AppCompatActivity {
 
     //Handles playback of all the sound files
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mMediaPlayer;
 
     //This listener gets triggered when the {@link MediaPlayer} has completed playing the audio file.
     //
@@ -96,17 +96,40 @@ public class ColorsActivity extends AppCompatActivity {
              */
             private void releaseMediaPlayer() {
                 // If the media player is not null, then it may be currently playing a sound.
-                if (mediaPlayer != null) {
+                if (mMediaPlayer != null) {
                     // Regardless of the current state of the media player, release its resources
                     // because we no longer need it.
-                    mediaPlayer.release();
+                    mMediaPlayer.release();
 
                     // Set the media player back to null. For our code, we've decided that
                     // setting the media player to null is an easy way to tell that the media player
                     // is not configured to play an audio file at the moment.
-                    mediaPlayer = null;
+                    mMediaPlayer = null;
                 }
             }
         });
+    }
+
+        @Override
+        protected void onStop(){
+            super.onStop();
+            releaseMediaPlayer();
+        }
+
+        /**
+        * Clean up the media player by releasing its resources.
+        */
+        private void releaseMediaPlayer() {
+            // If the media player is not null, then it may be currently playing a sound.
+            if (mMediaPlayer != null) {
+                // Regardless of the current state of the media player, release its resources
+                // because we no longer need it.
+                mMediaPlayer.release();
+
+                // Set the media player back to null. For our code, we've decided that
+                // setting the media player to null is an easy way to tell that the media player
+                // is not configured to play an audio file at the moment.
+                mMediaPlayer = null;
+        }
     }
 }

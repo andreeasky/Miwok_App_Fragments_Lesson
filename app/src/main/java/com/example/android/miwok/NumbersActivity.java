@@ -12,7 +12,16 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
-  private MediaPlayer mMediaPlayer;
+    //Handles playback of all the sound files
+    private MediaPlayer mMediaPlayer;
+
+    //This listener gets triggered when the {@link MediaPlayer} has completed playing the audio file.
+    //
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

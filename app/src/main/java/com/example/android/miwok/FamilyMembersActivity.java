@@ -61,61 +61,44 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
 
                 if (i == 0) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_father);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_father);
+                    mMediaPlayer.start();
                 }
                 if (i == 1) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_mother);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_mother);
+                    mMediaPlayer.start();
                 }
                 if (i == 2) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_son);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_son);
+                    mMediaPlayer.start();
                 }
                 if (i == 3) {
                     MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_daughter);
                     mediaPlayer.start();
                 }
                 if (i == 4) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_older_brother);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_older_brother);
+                    mMediaPlayer.start();
                 }
                 if (i == 5) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_younger_brother);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_younger_brother);
+                    mMediaPlayer.start();
                 }
                 if (i == 6) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_older_sister);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_older_sister);
+                    mMediaPlayer.start();
                 }
                 if (i == 7) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_younger_sister);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_younger_sister);
+                    mMediaPlayer.start();
                 }
                 if (i == 8) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_grandmother);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_grandmother);
+                    mMediaPlayer.start();
                 }
                 if (i == 9) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_grandfather);
-                    mediaPlayer.start();
-                }
-            }
-
-            /**
-             * Clean up the media player by releasing its resources.
-             */
-            private void releaseMediaPlayer() {
-                // If the media player is not null, then it may be currently playing a sound.
-                if (mMediaPlayer != null) {
-                    // Regardless of the current state of the media player, release its resources
-                    // because we no longer need it.
-                    mMediaPlayer.release();
-
-                    // Set the media player back to null. For our code, we've decided that
-                    // setting the media player to null is an easy way to tell that the media player
-                    // is not configured to play an audio file at the moment.
-                    mMediaPlayer = null;
+                    MediaPlayer mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_grandfather);
+                    mMediaPlayer.start();
                 }
             }
         });

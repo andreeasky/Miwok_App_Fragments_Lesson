@@ -58,53 +58,36 @@ public class ColorsActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
 
                 if (i == 0) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_red);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_red);
+                    mMediaPlayer.start();
                 }
                 if (i == 1) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_mustard_yellow);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_mustard_yellow);
+                    mMediaPlayer.start();
                 }
                 if (i == 2) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_dusty_yellow);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_dusty_yellow);
+                    mMediaPlayer.start();
                 }
                 if (i == 3) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_green);
-                    mediaPlayer.start();
+                    mMediaPlayer  = MediaPlayer.create(ColorsActivity.this, R.raw.color_green);
+                    mMediaPlayer.start();
                 }
                 if (i == 4) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_brown);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_brown);
+                    mMediaPlayer.start();
                 }
                 if (i == 5) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_gray);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_gray);
+                    mMediaPlayer.start();
                 }
                 if (i == 6) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_black);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_black);
+                    mMediaPlayer.start();
                 }
                 if (i == 7) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_white);
-                    mediaPlayer.start();
-                }
-            }
-
-            /**
-             * Clean up the media player by releasing its resources.
-             */
-            private void releaseMediaPlayer() {
-                // If the media player is not null, then it may be currently playing a sound.
-                if (mMediaPlayer != null) {
-                    // Regardless of the current state of the media player, release its resources
-                    // because we no longer need it.
-                    mMediaPlayer.release();
-
-                    // Set the media player back to null. For our code, we've decided that
-                    // setting the media player to null is an easy way to tell that the media player
-                    // is not configured to play an audio file at the moment.
-                    mMediaPlayer = null;
+                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_white);
+                    mMediaPlayer.start();
                 }
             }
         });

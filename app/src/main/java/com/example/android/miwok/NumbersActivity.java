@@ -19,7 +19,7 @@ public class NumbersActivity extends AppCompatActivity {
     //
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
-        public void onCompletion(MediaPlayer mediaPlayer) {
+        public void onCompletion(MediaPlayer mMediaPlayer) {
         }
     };
 
@@ -61,44 +61,44 @@ public class NumbersActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
 
                 if (i == 0) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
+                    mMediaPlayer.start();
                 }
                 if (i == 1) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_two);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_two);
+                    mMediaPlayer.start();
                 }
                 if (i == 2) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_three);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_three);
+                    mMediaPlayer.start();
                 }
                 if (i == 3) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_four);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_four);
+                    mMediaPlayer.start();
                 }
                 if (i == 4) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_five);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_five);
+                    mMediaPlayer.start();
                 }
                 if (i == 5) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_six);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_six);
+                    mMediaPlayer.start();
                 }
                 if (i == 6) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_seven);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_seven);
+                    mMediaPlayer.start();
                 }
                 if (i == 7) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_eight);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_eight);
+                    mMediaPlayer.start();
                 }
                 if (i == 8) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_nine);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_nine);
+                    mMediaPlayer.start();
                 }
                 if (i == 9) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_ten);
-                    mediaPlayer.start();
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_ten);
+                    mMediaPlayer.start();
                 }
             }
         });
@@ -107,6 +107,7 @@ public class NumbersActivity extends AppCompatActivity {
         protected void onStop(){
             super.onStop();
             releaseMediaPlayer();
+
         }
 
         /**

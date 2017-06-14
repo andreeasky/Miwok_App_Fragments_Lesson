@@ -4,8 +4,6 @@ package com.example.android.miwok;
  * Created by User on 5/21/2017.
  */
 
-import static android.bluetooth.BluetoothClass.Service.AUDIO;
-
 /**
  *{@Link Word} represents vocabulary word that the user wants to learn.
  *It contains a default translation and a Miwok translation for that word.
@@ -30,7 +28,10 @@ public class Word {
     /** Constant value that represents no image was provided for this word */
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    private int mAudioResourceId = AUDIO;
+    /**
+     * Private integer variable for the audio resource ID - Audio resource ID for the word
+     */
+    private int mAudioResourceId;
 
     /**
      * Create a new Word object.
@@ -39,6 +40,7 @@ public class Word {
      * @param miwokTranslation   is the word in the Miwok language
      * @param number_one
      * @param numberOne
+     * @param audioResourceId
      */
     public Word(String defaultTranslation, String miwokTranslation, int number_one, int numberOne, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
@@ -54,6 +56,8 @@ public class Word {
      * @param miwokTranslation   is the word in the Miwok language
      *
      * @param imageResourceId  is the drawable resource ID for the image associated with the word
+     *
+     * @param audioResourceId  is the audio resource ID for the audio associated with the word
      */
     public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
@@ -89,7 +93,8 @@ public class Word {
             return mImageResourceId != NO_IMAGE_PROVIDED;
         }
 
-
+    /**
+     *  Returns whether or not there is an audio for this word.
+     */
         public int getAudioResourceId() {return  mAudioResourceId;}
-
 }

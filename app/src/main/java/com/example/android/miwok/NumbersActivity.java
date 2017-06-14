@@ -11,12 +11,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-
-import static android.bluetooth.BluetoothClass.Service.AUDIO;
-import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
-import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK;
-import static android.os.Build.VERSION_CODES.M;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -25,12 +19,41 @@ public class NumbersActivity extends AppCompatActivity {
 
     // Handles audio focus when playing a sound file
     private AudioManager mAudioManager;
+    /**
+     * This listener gets triggered whenever the audio focus changes
+     * (i.e., we gain or lose audio focus because of another app or device).
+     */
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                // The AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
+                // short amount of time. The AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
+                // our app is allowed to continue playing sound but at a lower volume. We'll treat
+                // both cases the same way because our app is playing short sound files.
 
+                // Pause playback and reset player to the start of the file. That way, we can
+                // play the word from the beginning when we resume playback.
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                // The AUDIOFOCUS_GAIN case means we have regained focus and can resume playback.
+                mMediaPlayer.start();
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                // The AUDIOFOCUS_LOSS case means we've lost audio focus and
+                // Stop playback and clean up resources
+                releaseMediaPlayer();
+            }
+        }
+    };
     // This listener gets triggered when the {@link MediaPlayer} has completed playing the audio file.
     //
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mMediaPlayer) {
+            // Now that the sound file has finished playing, release the media player resources.
+            releaseMediaPlayer();
         }
     };
 
@@ -71,9 +94,11 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //Release the media player if it currently exists because we are about to
+                // play a different sound file
                 releaseMediaPlayer();
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
-
+                // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(i);
 
                 if (i == 0) {
@@ -118,82 +143,56 @@ public class NumbersActivity extends AppCompatActivity {
                 }
 
                 // Request audio focus for playback
-                int result = mAudioManager.requestAudioFocus(afChangeListener,
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         // Use the music stream.
                         AudioManager.STREAM_MUSIC,
                         // Request permanent focus.
                         AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mAudioManager.registerMediaButtonEventReceiver(RemoteControlReceiver);
                     // We have an audio focus now
 
                     // Create and setup the {@link MediaPlayer} for the audio resource associated
                     // with the current word
                     mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getAudioResourceId());
-                            // Start the audio file
-                            mMediaPlayer.start();
-                            //Setup a listener on the media player, so that we can stop and release the
-                            // media player once the sound has finished playing.
-                            mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                    // Start the audio file
+                    mMediaPlayer.start();
+                    //Setup a listener on the media player, so that we can stop and release the
+                    // media player once the sound has finished playing.
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
                 }
             }
         });
     }
 
-        @Override
-        protected void onStop(){
-            super.onStop();
-            releaseMediaPlayer();
-
-        }
-
-        /**
-        * Clean up the media player by releasing its resources.
-        */
-        private void releaseMediaPlayer() {
-            // If the media player is not null, then it may be currently playing a sound.
-            if (mMediaPlayer != null) {
-                // Regardless of the current state of the media player, release its resources
-                // because we no longer need it.
-                mMediaPlayer.release();
-
-                // Set the media player back to null. For our code, we've decided that
-                // setting the media player to null is an easy way to tell that the media player
-                // is not configured to play an audio file at the moment.
-                mMediaPlayer = null;
-        }
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // When the activity is stopped, release the media player resources because we won't
+        // be playing any more sounds.
+        releaseMediaPlayer();
     }
 
     /**
-     * This listener gets triggered whenever the audio focus changes
-     * (i.e., we gain or lose audio focus because of another app or device).
+     * Clean up the media player by releasing its resources.
      */
-    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
-        @Override
-        public void onAudioFocusChange(int focusChange) {
-            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
-                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
-                // The AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
-                // short amount of time. The AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
-                // our app is allowed to continue playing sound but at a lower volume. We'll treat
-                // both cases the same way because our app is playing short sound files.
+    private void releaseMediaPlayer() {
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPlayer.release();
 
-                // Pause playback and reset player to the start of the file. That way, we can
-                // play the word from the beginning when we resume playback.
-                mMediaPlayer.pause();
-                mMediaPlayer.seekTo(0);
-            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
-                // The AUDIOFOCUS_GAIN case means we have regained focus and can resume playback.
-                mMediaPlayer.start();
-            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
-                // The AUDIOFOCUS_LOSS case means we've lost audio focus and
-                // Stop playback and clean up resources
-                releaseMediaPlayer();
-            }
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPlayer = null;
+
+            // Regardless of whether or not we were granted audio focus, abandon it. This also
+            // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
-    };
+    }
 }
 
 

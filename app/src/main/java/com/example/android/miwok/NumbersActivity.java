@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
+import static android.bluetooth.BluetoothClass.Service.AUDIO;
 import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
 import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK;
 import static android.os.Build.VERSION_CODES.M;
@@ -72,6 +73,8 @@ public class NumbersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 releaseMediaPlayer();
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
+
+                Word word = words.get(i);
 
                 if (i == 0) {
                     mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);

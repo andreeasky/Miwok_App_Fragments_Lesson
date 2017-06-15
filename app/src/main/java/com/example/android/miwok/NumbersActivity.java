@@ -101,47 +101,6 @@ public class NumbersActivity extends AppCompatActivity {
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(i);
 
-                if (i == 0) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_one);
-                    mMediaPlayer.start();
-                }
-                if (i == 1) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_two);
-                    mMediaPlayer.start();
-                }
-                if (i == 2) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_three);
-                    mMediaPlayer.start();
-                }
-                if (i == 3) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_four);
-                    mMediaPlayer.start();
-                }
-                if (i == 4) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_five);
-                    mMediaPlayer.start();
-                }
-                if (i == 5) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_six);
-                    mMediaPlayer.start();
-                }
-                if (i == 6) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_seven);
-                    mMediaPlayer.start();
-                }
-                if (i == 7) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_eight);
-                    mMediaPlayer.start();
-                }
-                if (i == 8) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_nine);
-                    mMediaPlayer.start();
-                }
-                if (i == 9) {
-                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, R.raw.number_ten);
-                    mMediaPlayer.start();
-                }
-
                 // Request audio focus for playback
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         // Use the music stream.

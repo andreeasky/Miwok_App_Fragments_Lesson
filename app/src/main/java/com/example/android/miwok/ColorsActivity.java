@@ -94,39 +94,6 @@ public class ColorsActivity extends AppCompatActivity {
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(i);
 
-                if (i == 0) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_red);
-                    mMediaPlayer.start();
-                }
-                if (i == 1) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_mustard_yellow);
-                    mMediaPlayer.start();
-                }
-                if (i == 2) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_dusty_yellow);
-                    mMediaPlayer.start();
-                }
-                if (i == 3) {
-                    mMediaPlayer  = MediaPlayer.create(ColorsActivity.this, R.raw.color_green);
-                    mMediaPlayer.start();
-                }
-                if (i == 4) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_brown);
-                    mMediaPlayer.start();
-                }
-                if (i == 5) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_gray);
-                    mMediaPlayer.start();
-                }
-                if (i == 6) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_black);
-                    mMediaPlayer.start();
-                }
-                if (i == 7) {
-                    mMediaPlayer = MediaPlayer.create(ColorsActivity.this, R.raw.color_white);
-                    mMediaPlayer.start();
-                }
-
                 // Request audio focus for playback
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         // Use the music stream.

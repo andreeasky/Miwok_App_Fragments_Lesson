@@ -102,47 +102,6 @@ public class PhrasesActivity extends AppCompatActivity {
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(i);
 
-                if (i == 0) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_where_are_you_going);
-                    mMediaPlayer.start();
-                }
-                if (i == 1) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_what_is_your_name);
-                    mMediaPlayer.start();
-                }
-                if (i == 2) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_my_name_is);
-                    mMediaPlayer.start();
-                }
-                if (i == 3) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_how_are_you_feeling);
-                    mMediaPlayer.start();
-                }
-                if (i == 4) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_im_feeling_good);
-                    mMediaPlayer.start();
-                }
-                if (i == 5) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_are_you_coming);
-                    mMediaPlayer.start();
-                }
-                if (i == 6) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_yes_im_coming);
-                    mMediaPlayer.start();
-                }
-                if (i == 7) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_im_coming);
-                    mMediaPlayer.start();
-                }
-                if (i == 8) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_lets_go);
-                    mMediaPlayer.start();
-                }
-                if (i == 9) {
-                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, R.raw.phrase_come_here);
-                    mMediaPlayer.start();
-                }
-
                 // Request audio focus for playback
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                         // Use the music stream.

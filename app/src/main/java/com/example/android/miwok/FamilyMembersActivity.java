@@ -95,50 +95,8 @@ public class FamilyMembersActivity extends AppCompatActivity {
                 // play a different sound file
                 releaseMediaPlayer();
                 Toast.makeText(getApplicationContext(), "Playing sound", Toast.LENGTH_SHORT).show();
-
                 // Get the {@link Word} object at the given position the user clicked on
                 Word word = words.get(i);
-
-                if (i == 0) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_father);
-                    mMediaPlayer.start();
-                }
-                if (i == 1) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_mother);
-                    mMediaPlayer.start();
-                }
-                if (i == 2) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_son);
-                    mMediaPlayer.start();
-                }
-                if (i == 3) {
-                    MediaPlayer mediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_daughter);
-                    mediaPlayer.start();
-                }
-                if (i == 4) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_older_brother);
-                    mMediaPlayer.start();
-                }
-                if (i == 5) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_younger_brother);
-                    mMediaPlayer.start();
-                }
-                if (i == 6) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_older_sister);
-                    mMediaPlayer.start();
-                }
-                if (i == 7) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_younger_sister);
-                    mMediaPlayer.start();
-                }
-                if (i == 8) {
-                    mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_grandmother);
-                    mMediaPlayer.start();
-                }
-                if (i == 9) {
-                    MediaPlayer mMediaPlayer = MediaPlayer.create(FamilyMembersActivity.this, R.raw.family_grandfather);
-                    mMediaPlayer.start();
-                }
 
                 // Request audio focus for playback
                 int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,

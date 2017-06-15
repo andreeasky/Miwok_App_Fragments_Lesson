@@ -35,14 +35,13 @@ public class Word {
 
     /**
      * Create a new Word object.
-     *  @param defaultTranslation is the word in a language that the user is already familiar with
+     * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation   is the word in the Miwok language
-     * @param number_one
-     * @param numberOne
-     * @param audioResourceId
+     *
+     * @param audioResourceId  is the audio resource ID for the audio associated with the word
      */
-    public Word(String defaultTranslation, String miwokTranslation, int number_one, int numberOne, int audioResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mAudioResourceId = audioResourceId;

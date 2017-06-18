@@ -1,6 +1,6 @@
 package com.example.android.miwok;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -46,7 +46,7 @@ public class PageFragment extends Fragment {
 
     public static class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
         final int PAGE_COUNT = 4;
-        private String tabTitles[] = new String[] { "Numbers", "Family Members", "Colors", "Phrases" };
+        private String tabTitles[] = new String[]{"Numbers", "Family Members", "Colors", "Phrases"};
         private Context context;
 
         /**
@@ -62,7 +62,15 @@ public class PageFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            return PageFragment.newInstance(position + 1);
+            if (position == 0) {
+                return new NumbersFragment();
+            } else if (position == 1) {
+                return new FamilyMembersFragment();
+            } else if (position == 2) {
+                return new ColorsFragment();
+            } else {
+                return new PhrasesFragment();
+            }
         }
 
         /**
@@ -80,3 +88,4 @@ public class PageFragment extends Fragment {
         }
     }
 }
+

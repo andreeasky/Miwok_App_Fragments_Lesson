@@ -35,7 +35,7 @@
         <item name="tabIndicatorColor">#FFFFFF</item>
         <item name="tabSelectedTextColor">#FFFFFF</item>
         <item name="tabTextColor">#A8A19E</item>
-
+        <item name="tabBackground">@color/primary_color</item>
     </style>
 
 </resources>
